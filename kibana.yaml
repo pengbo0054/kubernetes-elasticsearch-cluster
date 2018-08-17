@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: mapleobserver/elastic-kibana:6.2.1
+        image: pengbo0054/kibana-oss:6.3.0
         env:
         - name: CLUSTER_NAME
           value: myesdb
