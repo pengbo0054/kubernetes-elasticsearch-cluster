@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: docker.elastic.co/kibana/kibana-oss:6.3.0
+        image: mapleobserver/elastic-kibana:6.2.1
         env:
         - name: CLUSTER_NAME
           value: myesdb
-        - name: SERVER_BASEPATH
-          value: /api/v1/namespaces/default/services/kibana:http/proxy
+#        - name: SERVER_BASEPATH
+#          value: /kibana:5601
         resources:
           limits:
             cpu: 1000m
