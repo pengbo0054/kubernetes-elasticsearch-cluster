@@ -6,7 +6,7 @@ metadata:
     component: elasticsearch
     role: data
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -61,14 +61,14 @@ spec:
         livenessProbe:
           tcpSocket:
             port: transport
-          initialDelaySeconds: 20
-          periodSeconds: 10
+          initialDelaySeconds: 180
+          periodSeconds: 90
         readinessProbe:
           httpGet:
             path: /_cluster/health
             port: http
-          initialDelaySeconds: 20
-          timeoutSeconds: 5
+          initialDelaySeconds: 180
+          timeoutSeconds: 90
         volumeMounts:
         - name: storage
           mountPath: /data
