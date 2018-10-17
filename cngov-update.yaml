@@ -1,0 +1,18 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cngov-update
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cngov-update
+            image: pengbo0054/cngov-update
+            args:
+            - /bin/sh
+            - -c
+            - cd /cngov_spiders/cngov_spiders/scripts && python multi-scrapy.py
+          restartPolicy: OnFailure
